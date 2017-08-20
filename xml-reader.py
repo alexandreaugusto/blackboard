@@ -29,6 +29,10 @@ try:
 		data = root.findall("clima")
 		data_atualizacao = datetime.datetime.strptime(data[0].attrib.get('data') + data[0].attrib.get('hora'), "%d/%m/%Y%H:%M")
 
+		estado = root.findall("clima/estados/estado")
+
+		print("Lendo estado >> " + estado[0].attrib.get('nome') + " (" + uf + ")")
+
 		for cidade in root.findall('./clima/estados/estado/cidades/cidade'):
 			#print(cidade.attrib.get('id') + ' / ' + cidade.attrib.get('nome'))
 			for clima in cidade.findall('clima'):
