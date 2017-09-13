@@ -14,7 +14,7 @@ do
 	/usr/bin/wget -q "http://img0.cptec.inpe.br/~rgrafico/portal_tempo/bandas/tempo/prev_google_"$i"_br.png" -O /tmp/ai/$CURDATE/"prev_google_"$i"_br.png"
 done
 
-for i in `seq 1 7`;
+for i in {1..7};
 do
 	/usr/bin/gdal_translate -of Gtiff -a_ullr -91.75 10.75 -18 -38.3 -a_srs EPSG:4326 /tmp/ai/$CURDATE/"prev_google_"$i"_br.png" /tmp/ai/$CURDATE/"prev_google_"$i"_br.gtiff"
 done
